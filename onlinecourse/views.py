@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 # <HINT> Import any new Models here
-from django.shortcuts import render
-from .models import Cours
+
 from .models import Course, Enrollment
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
@@ -15,6 +14,9 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 
+def course_list(request):
+    courses = Course.objects.all()
+    return render(request, 'course_details_bootstrap.html', {'courses': courses})
 def registration_request(request):
     context = {}
     if request.method == 'GET':

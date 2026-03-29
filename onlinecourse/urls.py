@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -8,6 +8,8 @@ urlpatterns = [
     # route is a string contains a URL pattern
     # view refers to the view function
     # name the URL
+    path('', include('onlinecourse.urls')),
+     path('', views.course_list, name='course_list'),
     path(route='', view=views.CourseListView.as_view(), name='index'),
     path('registration/', views.registration_request, name='registration'),
     path('login/', views.login_request, name='login'),

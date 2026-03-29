@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <h1>Courses</h1>
+
+{% for course in courses %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3>{{ course.name }}</h3>
+            <p>{{ course.description }}</p>
+        </div>
+    </div>
+{% endfor %}
     <!-- Navigation bar -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
